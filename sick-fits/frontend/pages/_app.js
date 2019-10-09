@@ -14,13 +14,13 @@ class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, apollo } = this.props;
+    const { Component, apollo, pageProps } = this.props;
 
     return (
       <Container>
         <ApolloProvider client={apollo}>
           <Page>
-            <Component />
+            <Component {...pageProps} />
           </Page>
         </ApolloProvider>
       </Container>
@@ -28,4 +28,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withData(MyApp);
